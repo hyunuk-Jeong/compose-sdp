@@ -6,6 +6,11 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.Dp
+
+// CompositionLocal로 비율 정보를 전달
+val LocalWidthRatio = compositionLocalOf { 1f }
+val LocalHeightRatio = compositionLocalOf { 1f }
 
 // SdpInit: 디자인 기준 크기 (디자인에서의 가로, 세로)와 실제 디바이스 크기를 비교하여 크기 비율을 계산
 @Composable
@@ -31,6 +36,16 @@ fun SdpInit(designWidth: Int, designHeight: Int, content: @Composable () -> Unit
     }
 }
 
-// CompositionLocal로 비율 정보를 전달
-val LocalWidthRatio = compositionLocalOf { 1f }
-val LocalHeightRatio = compositionLocalOf { 1f }
+// Dp 확장 함수 - 세로 비율에 맞춰 크기 변환
+@Composable
+fun Dp.sdp_h(): Dp {
+    val heightRatio = LocalHeightRatio.current
+    return this * heightRatio
+}
+
+// Dp 확장 함수 - 가로 비율에 맞춰 크기 변환
+@Composable
+fun Dp.sdp_w(): Dp {
+    val widthRatio = LocalWidthRatio.current
+    return this * widthRatio
+}
