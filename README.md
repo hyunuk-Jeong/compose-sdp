@@ -1,15 +1,25 @@
 
-# compose-sdp
+# 📱 compose-sdp
 
-`compose-sdp` is an Android library that provides UI components based on [Jetpack Compose](https://developer.android.com/jetpack/compose). This library helps you easily use various UI elements in a Compose-style manner.
+**compose-sdp**는 Jetpack Compose 기반의 Android 프로젝트에서 **기기 해상도에 맞춰 dp 값을 자동으로 조정**할 수 있도록 도와주는 경량 유틸리티 라이브러리입니다.
 
-## Installation
+디바이스 화면 크기에 따라 적절한 비율로 UI 크기를 조정하여 **다양한 화면에서도 일관된 UI**를 구성할 수 있습니다.
 
-This library is distributed via JitPack, and you can add it to your project via Gradle.
+---
 
-### 1. Add JitPack Repository
+## ✨ Features
 
-Add the JitPack repository in your `build.gradle.kts` file:
+- ✅ 화면 너비/높이 비율 기반 dp 계산
+- ✅ Jetpack Compose에서 간편하게 사용
+- ✅ `Float`, `Int` 타입 모두 지원
+- ✅ 다양한 해상도에서도 일관된 디자인 보장
+- ✅ `sdp_h()` / `sdp_w()` 함수 제공
+
+---
+
+## 🛠 Installation
+
+### 1. `build.gradle.kts` (Project level)
 
 ```kotlin
 repositories {
@@ -19,49 +29,60 @@ repositories {
 }
 ```
 
-### 2. Add Dependency
-
-Add the following dependency in your `build.gradle.kts` file:
+### 2. `build.gradle.kts` (Module level)
 
 ```kotlin
 dependencies {
-    implementation("com.github.hyunuk-Jeong.compose-sdp:v1.0.0")
+    implementation("com.github.hyunuk-Jeong.compose-sdp:v1.0.04")
 }
 ```
 
-Make sure to replace `v1.0.0` with the version of the library you wish to use. You can check for the latest version on [JitPack](https://jitpack.io/#hyunuk-Jeong/compose-sdp).
+📌 최신 버전은 [JitPack](https://jitpack.io/#hyunuk-Jeong/compose-sdp)에서 확인하세요.
 
-## Usage
+---
 
-Here’s an example of how to use the library in your project.
+## 📦 Usage
 
-### Example 1: Using Compose UI Elements
+### 기본 사용법
 
 ```kotlin
-import com.hyunuk.compose_sdp.YourComponent
+import com.hyunuk.compose_sdp.sdp_w
+import com.hyunuk.compose_sdp.sdp_h
 
 @Composable
-fun ExampleScreen() {
-    YourComponent(
-        modifier = Modifier.fillMaxSize(),
-        // other parameters
-    )
+fun SampleScreen() {
+    Box(
+        modifier = Modifier
+            .padding(16.sdp_w())  // 가로 비율 기준 padding
+            .height(100.sdp_h())  // 세로 비율 기준 height
+    ) {
+        Text("Hello Compose")
+    }
 }
 ```
 
-### Example 2: Utilizing Various Features
+## 🧠 내부 동작 원리
 
-Use the different UI components and features provided by the library to efficiently design the UI for your Android app.
+- 현재 디바이스의 **실제 해상도 기준 너비/높이**를 바탕으로 기준 해상도 대비 비율을 계산합니다.
+- 기준 해상도는 일반적으로 `360dp x 640dp` (혹은 `392dp x 851dp`) 등으로 설정됩니다.
+- 계산된 비율을 기반으로 `dp` 값을 동적으로 변환하여 리턴합니다.
+- 사용자 임의로 디자인(figma, adobe 등) 기준에 맞게 Sdp 사이즈를 정의할 수도 있습니다.
 
-## Versioning
+```kotlin
+SdpInit(375,845) {
+    {Component}
+}
+```
 
-This library follows [SemVer](https://semver.org/) (Semantic Versioning). You can check for the latest version on [JitPack](https://jitpack.io/#hyunuk-Jeong/compose-sdp).
+---
 
-## License
+## 📜 License
 
-This library is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+MIT License. 자유롭게 사용 가능합니다.
 
-## Contact
+---
 
-- **Author:** Hyunuk Jeong
-- **GitHub Repository:** [https://github.com/hyunuk-Jeong/compose-sdp](https://github.com/hyunuk-Jeong/compose-sdp)
+## 👨‍💻 Author
+
+- **Jeong Hyunuk**
+- GitHub: [@hyunuk-Jeong](https://github.com/hyunuk-Jeong)
