@@ -19,7 +19,7 @@
 
 ## 🛠 Installation
 
-### 1. `build.gradle.kts` (Project level)
+### 1. `settings.gradle.kts` 
 
 ```kotlin
 repositories {
@@ -95,4 +95,5 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 - **Jeong Hyunuk**
 - GitHub: [@hyunuk-Jeong](https://github.com/hyunuk-Jeong)
+
 
