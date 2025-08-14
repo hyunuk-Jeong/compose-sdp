@@ -13,7 +13,7 @@
 - ✅ Jetpack Compose에서 간편하게 사용
 - ✅ `Float`, `Int` 타입 모두 지원
 - ✅ 다양한 해상도에서도 일관된 디자인 보장
-- ✅ `sdp_h()` / `sdp_w()` 함수 제공
+- ✅ `sdp_h()` / `sdp_w()` / `ssp_w()` / `ssp_w()` 함수 제공
 
 ---
 
@@ -33,7 +33,7 @@ repositories {
 
 ```kotlin
 dependencies {
-    implementation("com.github.hyunuk-Jeong.compose-sdp:v1.0.04")
+    implementation("com.github.hyunuk-Jeong.compose-sdp:v1.1.1")
 }
 ```
 
@@ -95,3 +95,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 - **Jeong Hyunuk**
 - GitHub: [@hyunuk-Jeong](https://github.com/hyunuk-Jeong)
+
