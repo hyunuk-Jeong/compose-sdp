@@ -3,6 +3,8 @@ package com.hyunuk.compose_sdp
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.sp
 
 // Float 확장 함수 - 세로 비율
 @Composable
